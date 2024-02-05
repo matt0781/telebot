@@ -6,7 +6,7 @@ import telegram_utils
 
 TOKEN: Final = '6973180139:AAG69PKg0sodJNZeSSH2K_hCmr8AebYI4XU'
 BOT_USERNAME: Final = '@TimetableAgent_bot'
-openai.api_key = "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"
+openai.api_key = "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"
 
 
 def main():
@@ -20,8 +20,8 @@ def main():
     
     # Commands
     app.add_handler(CommandHandler('start', telegram_utils.start_command))
-    app.add_handler(CommandHandler('limitation', telegram_utils.limit_command))
-    app.add_handler(CommandHandler('output_format', telegram_utils.output_query_command))
+    app.add_handler(CommandHandler('sync_google_calendar', telegram_utils.connect_gc))
+    app.add_handler(CommandHandler('unsync_google_calendar', telegram_utils.disconnect_gc))
     
     # Messages
     app.add_handler(MessageHandler(filters.TEXT, telegram_utils.handle_message))
